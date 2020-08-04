@@ -1,9 +1,8 @@
 {
   "expo": {
-    "name": "Mobx Test",
+    "name": "MobX Test",
     "slug": "mobx-test",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
