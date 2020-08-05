@@ -7,11 +7,14 @@ cache:
 before_script:
   - npm install -g npm@latest
   - npm install -g expo-cli
+  - apt-get -Y install jq
 script:
   - echo 'Installing the dependencies...'
   - yarn install --non-interactive
   - expo --version # expo-cli version
   - yarn list expo
+  - echo 'Set unsplash api key to app.json'
+  - jq '.expo.extra.unsplash="$UNSPLASH_API_KEY"' app.json > app.json.tmp && mv -f app.json.tmp app.json
   - echo 'Analysing app config...'
   - expo doctor --non-interactive
   - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
