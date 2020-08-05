@@ -1,4 +1,5 @@
 import { decorate, observable, action, computed } from "mobx";
+import { Constants } from expo;
 
  class Store {
 
@@ -63,7 +64,7 @@ get getFavoriteCount() {
 
   // action to call API and search images
   searchImages = () => {
-    let API_KEY = 'CHANGE_ME';
+    let API_KEY = Constants.manifest.extra.unsplashApiKey;
     let page = 1; // vale sempre 1 in questo esempio
     let url = 'https://api.unsplash.com/search/photos?client_id=' + API_KEY + '&page=' + page + '&query=' + encodeURIComponent(this.text) + '&orientation=landscape';
     console.log('Fetching ' + url);
