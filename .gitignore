@@ -12,3 +12,10 @@ web-report/
 
 # macOS
 .DS_Store
+
+# Iubar
+api-key.txt
+debug.log
+package-lock.json
+app.json 
+# because api-key is saved in app.json 
