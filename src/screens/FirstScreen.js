@@ -9,7 +9,7 @@ export default class FirstSCreen extends React.Component {
   render(){
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello {this.props.store.name}!</Text>
+      <Text>Hello {this.props.store.name} !</Text>
     </SafeAreaView >
   );
 }

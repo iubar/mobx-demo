@@ -9,10 +9,16 @@ import { inject, observer } from 'mobx-react';
 @observer
 export default class SecondScreen extends React.Component {
   
+  defaultValue = 'cat'
+
   fixedSize = {
     height: 0,
     width: 0
   };
+
+  componentDidMount() {
+    this.props.store.updateText(this.defaultValue);
+  }
 
   onButtoPress = () => {
     console.log('Button pressed...');
@@ -41,8 +47,9 @@ export default class SecondScreen extends React.Component {
       this.fixedSize.width = width * scale;
       this.fixedSize.height = height * scale;
     }
+
     return (
-      <TouchableOpacity onPress={this.onItemPress}>
+      <TouchableOpacity onPress={() => this.onItemPress(item)}>
       {/*<Text>{item.id}</Text>*/}
       <Image style={[styles.item, {width: this.fixedWidth, height: this.fixedHeight}]} source={{ uri: item.urls.small }} />          
     </TouchableOpacity>
@@ -56,7 +63,8 @@ export default class SecondScreen extends React.Component {
     <SafeAreaView style={styles.container}>
       <Subheading style={styles.title}>Images found: {this.props.store.data.results.length}</Subheading>
       <TextInput // TextInput to get search query from user 
-          style={styles.input}  defaultValue='cat' 
+          style={styles.input}
+          defaultValue={this.defaultValue}
           mode='outlined'
           label='Describe the picture to search'
           onChangeText={text => this.setText(text)}

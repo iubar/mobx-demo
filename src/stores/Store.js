@@ -6,65 +6,42 @@ import Constants from 'expo-constants';
   @observable
   name = 'Borgo';
 
-  @observable
-  count = 0;
+  // An observable to save image response from api
+  @observable  
+  data = {results:  []};
 
+  // The following attribute is not observable
+  text = '';
+
+  // The values that can be derived from already defined observables are computed values.
+  // Computed works like a getter function to get derived state from the observable
+  // The following computed function doesn't work as expected because 'text' is not observable
+  // This is right because, right now, we don't need 'text' to be observable
   @computed
-  get delayMessage(){
-    return 'The train is delayed by' + this.count;
-  }
+  get searchedText(){
+    let _text = 'undefined';
+    if(this.text){
+      _text = 'You have searched the string: ' + this.text;
+    }
+    return _text;
+  } 
 
-  @action
-  updateDelay(delay){
-    this.count = delay;
-  }
-
-
-
-
-
-
-
-// ESEMPIO:  invece di usare i decoratori potrei....
-// previously added value
-/*
-get getFavoriteCount() {
-    return this.favorites.length;
-}
-decorate(Store, {
-  // previously added values
-  getFavoriteCount: computed,
-});
-
-// another way to decorate variables with observable
-decorate(Store, {
-  text: observable,
-  updateText: action,
-  data: observable,
-  searchImage: action,
-  setData: action,
-});
-*/
-
-@computed
-get getFavoriteCount() {
-  return this.favorites.length;
-}
-
-// observable to save search query
-    text = '';
-
-// action to update text
+  // Actions are simply functions that modify the state.
+  @action 
   updateText = (text) => {
+      console.log('action called, text updated : ' + text);
       this.text = text;
     }
 
-
-  // observable to save image response from api
-  @observable  
-  data = {results:  []};
+  // Observables can be modifies by an action only.
+  // Actions are simply functions that modify the state.
+  @action  
+  setData = (data) => {
+    this.data = data;
+  };    
  
-  // action to call API and search images
+  // An action to call API and search images
+  @action 
   searchImages = async () => {
     let API_KEY = Constants.manifest.extra.unsplashApiKey;
     let page = 1; // vale sempre 1 in questo esempio
@@ -97,22 +74,41 @@ get getFavoriteCount() {
   }
 }
 
-  // observables can be modifies by an action only
-  @action  
-  setData = (data) => {
-    this.data = data;
-  };
+ 
 
-// array to save favourite images
-favorites = [];
+/*
 
-// action to add images to favorites
+OTHER EXAMPLES:
+
+@computed
+get getFavoriteCount() {
+    return this.favorites.length;
+}
+
+@action
 addToFavorite = (image) => {
   this.favorites.push(image);
   this.data = null;
   this.text = '';
 };
 
-}
+// Invece di usare i decoratori potrei....
+
+decorate(Store, {
+  // previously added values
+  getFavoriteCount: computed,
+});
+
+// another way to decorate variables with observable
+decorate(Store, {
+  text: observable,
+  updateText: action,
+  data: observable,
+  searchImage: action,
+  setData: action,
+});
+*/
+
+} // end class
  
 export default new Store();
