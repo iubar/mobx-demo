@@ -1,5 +1,5 @@
 import { decorate, observable, action, computed } from "mobx";
-import { Constants } from expo;
+import Constants from 'expo-constants';
 
  class Store {
 
@@ -13,6 +13,7 @@ import { Constants } from expo;
   get delayMessage(){
     return 'The train is delayed by' + this.count;
   }
+
   @action
   updateDelay(delay){
     this.count = delay;
@@ -60,20 +61,44 @@ get getFavoriteCount() {
 
 
   // observable to save image response from api
+  @observable  
   data = {results:  []};
-
+ 
   // action to call API and search images
-  searchImages = () => {
+  searchImages = async () => {
     let API_KEY = Constants.manifest.extra.unsplashApiKey;
     let page = 1; // vale sempre 1 in questo esempio
-    let url = 'https://api.unsplash.com/search/photos?client_id=' + API_KEY + '&page=' + page + '&query=' + encodeURIComponent(this.text) + '&orientation=landscape';
+    let per_page = 20;
+    let url = 'https://api.unsplash.com';
+    let lang = 'en';
+    let orientation = 'landscape';
+    url = url + '/search/photos';
+    url = url + '?page=' + page + '&per_page=' + per_page + '&lang=' + lang + '&orientation=' + orientation + '&query=' + encodeURIComponent(this.text) ;
     console.log('Fetching ' + url);
-    fetch(url)
-      .then(response => response.json())
-      .then(data => this.setData(data));
-  };
+    let result = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Accept-Version': 'v1',
+          Authorization: 'Client-ID ' + API_KEY,        
+        }
+    });	
+  let json = await result.json();
+  //console.log('json: ' + JSON.stringify(json));		
+  const statusCode = result.status;             
+  if (statusCode != 200){
+    console.log('Http error: ' + statusCode);			
+  }else{			
+    console.log('Ok: ' + statusCode);
+    console.log('results size: ' + json.results.length);
+    this.setData(json);
+   
+  }
+}
 
   // observables can be modifies by an action only
+  @action  
   setData = (data) => {
     this.data = data;
   };

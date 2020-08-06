@@ -6,7 +6,10 @@ import { inject, observer } from "mobx-react";
 @inject('store')
 @observer
 export default class ThirdScreen extends React.Component {
+  
   render(){
+    console.log('Render di ThirdScreen');
+ 
   return (
     <View style={styles.container}>
  

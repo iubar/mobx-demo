@@ -6,10 +6,6 @@ import { inject, observer } from "mobx-react";
 @observer
 export default class FirstSCreen extends React.Component {
 
-  constructor(props){		
-    super(props);    
-  }
-
   render(){
   return (
     <SafeAreaView style={styles.container}>
@@ -23,7 +19,6 @@ export default class FirstSCreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },

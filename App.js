@@ -14,6 +14,25 @@ import FirstScreen from './src/screens/FirstScreen';
 import SecondScreen from './src/screens/SecondScreen';
 import ThirdScreen from './src/screens/ThirdScreen';
 
+const AppTheme = {
+  ...DefaultTheme,
+  dark: false, 
+  mode: 'exact', // ('adaptive' | 'exact') (adaptive where we follow Material design guidelines)
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    // primary: '#3498db', // primary color for your app, usually your brand color.
+    // accent: '#f1c40f', // secondary color for your app which complements the primary color.
+    primary: 'red',
+	accent: 'rgb(259, 247, 0)',
+    background: 'rgb(242, 242, 242)',
+    card: 'rgb(255, 255, 255)',
+    text: 'rgb(28, 28, 30)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+  },
+};
+
 const Tab = createBottomTabNavigator();
 
 function MyTabBar({ state, descriptors, navigation }) {
@@ -72,9 +91,9 @@ function MyTabBar({ state, descriptors, navigation }) {
 export default class App extends React.Component {	 
 	render() {		
 	  return (     
-    <PaperProvider>
+    <PaperProvider theme={AppTheme}>
     <Provider store={store}>
-    <NavigationContainer>
+    <NavigationContainer theme={AppTheme}>
     {/*<Tab.Navigator tabBar={props => <MyTabBar {...props} />}>*/}
     <Tab.Navigator>
       <Tab.Screen name="Home" component={FirstScreen} options={{

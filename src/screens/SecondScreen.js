@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, FlatList, Image} from 'react-native';
+import {View, StyleSheet, FlatList, Image, SafeAreaView, TouchableOpacity} from 'react-native';
 // Paper
-import { Text, Paragraph , Button, TextInput} from 'react-native-paper';
+import { Text, Title, Paragraph , Button, TextInput, Subheading, Headline } from 'react-native-paper';
 // MobX
 import { inject, observer } from 'mobx-react';
  
@@ -9,7 +9,12 @@ import { inject, observer } from 'mobx-react';
 @observer
 export default class SecondScreen extends React.Component {
   
-  onPress = () =>{
+  fixedSize = {
+    height: 0,
+    width: 0
+  };
+
+  onButtoPress = () => {
     console.log('Button pressed...');
     this.props.store.searchImages();
   }
@@ -20,37 +25,82 @@ export default class SecondScreen extends React.Component {
     console.log('Text on store: ' + this.props.store.text);
   }  
 
+  onItemPress = (item) => {
+    console.log('Clic...' + item.id);
+  }
+
+  renderItem = ({ item }) => {
+    let width = item.width;
+    let height = item.height;
+    let scale = 0.05;
+    // I can resize an image on its size...
+    let width2 = width * scale; 
+    let height2 = height * scale;
+    // ...or I can resize all images on the first picture size
+    if(this.fixedSize.width==0 || this.fixedSize.height==0){
+      this.fixedSize.width = width * scale;
+      this.fixedSize.height = height * scale;
+    }
+    return (
+      <TouchableOpacity onPress={this.onItemPress}>
+      {/*<Text>{item.id}</Text>*/}
+      <Image style={[styles.item, {width: this.fixedWidth, height: this.fixedHeight}]} source={{ uri: item.urls.small }} />          
+    </TouchableOpacity>
+    )    
+  }
+
   render(){
+ 
+    console.log('Render di SecondScreen');    
   return (
-    <View style={styles.container}>
-      <Paragraph >Images added: {this.props.store.getFavoriteCount}</Paragraph>
+    <SafeAreaView style={styles.container}>
+      <Subheading style={styles.title}>Images found: {this.props.store.data.results.length}</Subheading>
       <TextInput // TextInput to get search query from user 
-          label='Describe the picture'
+          style={styles.input}  defaultValue='cat' 
+          mode='outlined'
+          label='Describe the picture to search'
           onChangeText={text => this.setText(text)}
         />
  
-  <Button icon="camera" mode="contained" onPress={this.onPress}>Search</Button>
+  <Button style={styles.button} icon="camera" mode="contained" onPress={this.onButtoPress}>Search</Button>
   <FlatList
+        style={styles.list}
         data={this.props.store.data.results} // response from API
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Image // reusable component to render image
-            source={{ uri: item.urls.small }} // passing the url
- 
-          />
-        )}
+        renderItem={this.renderItem}
       />
-    </View>
+    </SafeAreaView>
   );
   }
-}
+
+} // end class
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    marginTop: 60, 
-    
+    marginTop: 60,     
   },
-  
+  title: {
+    textAlign: 'center',
+  },  
+  list: {
+    flex: 1,
+  },
+  input: {
+    marginVertical: 4,
+    marginHorizontal: 16, 
+  },    
+  button: {
+    marginVertical: 4,
+    marginHorizontal: 16, 
+  },  
+  image: {
+    width: 166,
+    height: 166,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 4,
+    marginHorizontal: 16, 
+  } 
 });
