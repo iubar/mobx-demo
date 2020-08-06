@@ -6,6 +6,9 @@ import { Divider, Text, Title, Paragraph , Button, TextInput, Subheading, Headli
 import { inject, observer } from 'mobx-react';
 import { when, autorun } from 'mobx';
 
+/**
+ * @todo the divider is not visible beacuase its color is confused with that of the background, it's the same as the background
+ */
 @inject('store')
 @observer
 export default class ThirdScreen extends React.Component {
@@ -51,13 +54,13 @@ componentDidMount(){
       <Headline>Computed Observables</Headline>
       <View style={styles.section1}>
         <Text>{this.props.store.searchedText}</Text> 
-        <Text>The 'text' attribute is not observable, so the value printed above will be updated only when others events will call the render() method. In other words, the value may change in the store but the text above can continue to show a previous value.</Text>
+        <Text>The 'text' attribute is not observable, so the value printed above will be updated only when others events will call the render() method. In other words, the value may change in the store but the text above can continue to show a previous value. This is just to show a wrong usage of a computed observable.</Text>
       </View>   
       <Divider />
       <Headline>Reactions</Headline>
       <View style={styles.section2}>
       <Text>When: {this.state.text1}</Text> 
-      <Text>(it's only fired once so it will never be updated again)</Text> 
+      <Text>(the function defined as second argument in when(), it's only fired once so the text above will never be updated again)</Text> 
       <Text>Autorun: {this.state.text2}</Text> 
       </View>
     </SafeAreaView>

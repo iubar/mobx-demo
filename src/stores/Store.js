@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
  class Store {
 
   @observable
-  name = 'Borgo';
+  name = 'MobX Demo';
 
   // An observable to save image response from api
   @observable  
