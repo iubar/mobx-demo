@@ -24,12 +24,12 @@ const AppTheme = {
     // primary: '#3498db', // primary color for your app, usually your brand color.
     // accent: '#f1c40f', // secondary color for your app which complements the primary color.
     primary: 'red',
-	accent: 'rgb(259, 247, 0)',
+	  accent: 'rgb(259, 247, 0)',
     background: 'rgb(242, 242, 242)',
     card: 'rgb(255, 255, 255)',
     text: 'rgb(28, 28, 30)',
     border: 'rgb(199, 199, 204)',
-    notification: 'rgb(255, 69, 58)',
+    notification: 'blue',
   },
 };
 
@@ -89,13 +89,20 @@ function MyTabBar({ state, descriptors, navigation }) {
 }
 
 export default class App extends React.Component {	 
+
+  getThirdScreen = () => {
+    return (
+      <ThirdScreen theme={AppTheme} />
+    );
+  }
+
 	render() {		
 	  return (     
+    <Provider store={store}>      
     <PaperProvider theme={AppTheme}>
-    <Provider store={store}>
     <NavigationContainer theme={AppTheme}>
     {/*<Tab.Navigator tabBar={props => <MyTabBar {...props} />}>*/}
-    <Tab.Navigator>
+    <Tab.Navigator style={{color: 'green' }}>
       <Tab.Screen name="Home" component={FirstScreen} options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
@@ -103,16 +110,16 @@ export default class App extends React.Component {
           ),
         }}
         />
-      <Tab.Screen name="More" component={SecondScreen} options={{
-          tabBarLabel: 'Updates',
+      <Tab.Screen name="Basic" component={SecondScreen} options={{
+          tabBarLabel: 'Basic',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="bell" color={color} size={size} />
           ),
           tabBarBadge: 3,
         }}
       />
-      <Tab.Screen name="Settings" component={ThirdScreen}options={{
-          tabBarLabel: 'Profile',
+      <Tab.Screen name="Advanced" component={this.getThirdScreen}options={{
+          tabBarLabel: 'Advanced',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
@@ -120,8 +127,8 @@ export default class App extends React.Component {
       />
     </Tab.Navigator>
     </NavigationContainer>
+    </PaperProvider>    
     </Provider>
-    </PaperProvider>
   );
     }
 }

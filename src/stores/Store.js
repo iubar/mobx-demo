@@ -6,6 +6,9 @@ import Constants from 'expo-constants';
   @observable
   name = 'MobX Demo';
 
+  @observable
+  buttonEnabled = true;
+
   // An observable to save image response from api
   @observable  
   data = {results:  []};
@@ -43,6 +46,7 @@ import Constants from 'expo-constants';
   // An action to call API and search images
   @action 
   searchImages = async () => {
+    this.buttonEnabled = false;
     let API_KEY = Constants.manifest.extra.unsplashApiKey;
     let page = 1; // vale sempre 1 in questo esempio
     let per_page = 20;
@@ -70,8 +74,8 @@ import Constants from 'expo-constants';
     console.log('Ok: ' + statusCode);
     console.log('results size: ' + json.results.length);
     this.setData(json);
-   
   }
+  this.buttonEnabled = true;
 }
 
  

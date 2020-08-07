@@ -29,3 +29,7 @@ Live version: https://snack.expo.io/@git/github.com/iubar/mobx-test
 * https://www.digitalocean.com/community/tutorials/react-mobx-react-native-simplified
 * https://unsplash.com/documentation
 * https://github.com/EQuimper/blog/blob/master/content/post/where-do-i-put-secret-key-in-expo-project.md
+
+## Issues
+
+* https://github.com/callstack/react-native-paper/issues/2110

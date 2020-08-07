@@ -1,16 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, View, SafeAreaView} from 'react-native';
+import { Divider, Text, Title, Paragraph , Button, TextInput, Subheading, Headline } from 'react-native-paper';
 import { inject, observer } from "mobx-react";
 
 @inject('store')
 @observer
-export default class FirstSCreen extends React.Component {
+export default class FirstScreen extends React.Component {
 
   render(){
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello {this.props.store.name} !</Text>
-    </SafeAreaView >
+      <Text style={{textAlign: 'center'}}>Hello {this.props.store.name} !</Text>
+      <Divider style={{marginVertical: 20, background: 'black',  height: 10}} />
+      <Text>Please change tab</Text>
+    </SafeAreaView>
   );
 }
 
@@ -19,7 +22,6 @@ export default class FirstSCreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
   },
 });

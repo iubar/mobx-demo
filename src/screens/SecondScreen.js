@@ -25,6 +25,12 @@ export default class SecondScreen extends React.Component {
     this.props.store.searchImages();
   }
 
+  onSubmit = () => {
+    console.log('onSubmit()...');    
+    this.props.store.searchImages();
+  }
+  
+
   setText = (text) =>{
     console.log('Text changed...');
     this.props.store.updateText(text);
@@ -67,10 +73,15 @@ export default class SecondScreen extends React.Component {
           defaultValue={this.defaultValue}
           mode='outlined'
           label='Describe the picture to search'
+          returnKeyType='search'
+          autoFocus={true}
           onChangeText={text => this.setText(text)}
+          onSubmitEditing={this.onSubmit}
+          clearButtonMode="while-editing"
         />
+
  
-  <Button style={styles.button} icon="camera" mode="contained" onPress={this.onButtoPress}>Search</Button>
+  <Button style={styles.button} disabled={!this.props.store.buttonEnabled} icon="camera" mode="contained" onPress={this.onButtoPress}>Search</Button>
   <FlatList
         style={styles.list}
         data={this.props.store.data.results} // response from API
