@@ -5,9 +5,9 @@ cache:
   directories:
     - ~/.npm
 before_script:
+  - sudo apt-get -y install jq
   - npm install -g npm@latest
   - npm install -g expo-cli
-  - apt-get -y install jq
 script:
   - echo 'Installing the dependencies...'
   - yarn install --non-interactive
