@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MobX Test",
-    "slug": "mobx-test",
+    "name": "MobX Demo",
+    "slug": "mobx-demo",
     "privacy": "public",
     "platforms": [
       "ios",
