@@ -42,6 +42,7 @@ export default class SecondScreen extends React.Component {
   }
 
   renderItem = ({ item }) => {
+    // console.log('Rendering item...');
     let width = item.width;
     let height = item.height;
     let scale = 0.05;
@@ -63,9 +64,15 @@ export default class SecondScreen extends React.Component {
   }
 
   render(){
- 
-    console.log('Render di SecondScreen');    
-  return (
+    
+/*    
+console.log('Render di SecondScreen');    
+if(this.props.store.data){
+    console.log('this.props.store.data.results size: ' + this.props.store.data.length);
+}
+*/
+
+  return (  
     <SafeAreaView style={styles.container}>
       <Subheading style={styles.title}>Images found: {this.props.store.data.results.length}</Subheading>
       <TextInput // TextInput to get search query from user 
@@ -79,9 +86,11 @@ export default class SecondScreen extends React.Component {
           onSubmitEditing={this.onSubmit}
           clearButtonMode="while-editing"
         />
-
  
   <Button style={styles.button} disabled={!this.props.store.buttonEnabled} icon="camera" mode="contained" onPress={this.onButtoPress}>Search</Button>
+
+  <Text>Results found {this.props.store.data.results.length}</Text>
+
   <FlatList
         style={styles.list}
         data={this.props.store.data.results} // response from API

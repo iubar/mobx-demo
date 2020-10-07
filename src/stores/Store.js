@@ -1,17 +1,16 @@
-import { decorate, observable, action, computed } from "mobx";
+import { makeObservable, observable, action, computed } from "mobx";
 import Constants from 'expo-constants';
 
  class Store {
 
-  @observable
-  name = 'MobX Demo';
+  @observable name = 'MobX Demo';
 
-  @observable
-  buttonEnabled = true;
+  @observable buttonEnabled = true;
 
   // An observable to save image response from api
-  @observable  
-  data = {results:  []};
+  @observable data = {
+    results: []
+  };
 
   // The following attribute is not observable
   text = '';
@@ -39,17 +38,24 @@ import Constants from 'expo-constants';
   // Observables can be modifies by an action only.
   // Actions are simply functions that modify the state.
   @action  
-  setData = (data) => {
-    this.data = data;
-  };    
+  setData = (json) => {
+    console.log('data updated');
+    this.data.results = json.results;
+    console.log('this.data size: ' + this.data.results.length);
+  };
+
+  @action  
+  setButtonEnabled = (b) => {
+    this.buttonEnabled = b;
+  };  
  
   // An action to call API and search images
-  @action 
+  @action
   searchImages = async () => {
-    this.buttonEnabled = false;
+    this.setButtonEnabled(false);
     let API_KEY = Constants.manifest.extra.unsplashApiKey;
     let page = 1; // vale sempre 1 in questo esempio
-    let per_page = 20;
+    let per_page = 2;
     let url = 'https://api.unsplash.com';
     let lang = 'en';
     let orientation = 'landscape';
@@ -75,7 +81,7 @@ import Constants from 'expo-constants';
     console.log('results size: ' + json.results.length);
     this.setData(json);
   }
-  this.buttonEnabled = true;
+  this.setButtonEnabled(true);
 }
 
  
@@ -112,6 +118,12 @@ decorate(Store, {
   setData: action,
 });
 */
+
+
+constructor() {
+  makeObservable(this)
+}
+
 
 } // end class
  
