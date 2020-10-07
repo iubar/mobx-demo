@@ -69,7 +69,8 @@ dispose = () => {
       <ScrollView style={styles.listView} contentContainerStyle={styles.container2}>
       <Headline>Computed Observables</Headline>
       <View style={styles.section1}>
-        <Text>Searched text: {this.props.store.searchedText}</Text> 
+        <Text>@computed searchedText(): {this.props.store.searchedText}</Text> 
+        <Text>text: {this.props.store.text}</Text>        
         <Text>The 'text' attribute is not observable, so the value printed above will be updated only when others events will call the render() method. In other words, the value may change in the store but the text above can continue to show a previous value. This is just to show a wrong usage of a computed observable.</Text>
       </View>   
       <Divider theme={{height: 10 ,  backgroundColor: 'red', color: 'green' }} style={{height: 10 ,  backgroundColor: 'red', color: 'green' }} />
