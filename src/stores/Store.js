@@ -31,7 +31,7 @@ import Constants from 'expo-constants';
   // Actions are simply functions that modify the state.
   @action 
   updateText = (text) => {
-      console.log('action called, text updated : ' + text);
+      console.log('action called to update the text attribute : ' + text);
       this.text = text;
     }
 
@@ -77,8 +77,7 @@ import Constants from 'expo-constants';
   if (statusCode != 200){
     console.log('Http error: ' + statusCode);			
   }else{			
-    console.log('Ok: ' + statusCode);
-    console.log('results size: ' + json.results.length);
+    console.log('Ok: ' + statusCode  + ' (results size: ' + json.results.length + ')');
     this.setData(json);
   }
   this.setButtonEnabled(true);

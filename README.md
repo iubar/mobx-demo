@@ -30,6 +30,10 @@ Live version: https://snack.expo.io/@git/github.com/iubar/mobx-demo
 * https://unsplash.com/documentation
 * https://github.com/EQuimper/blog/blob/master/content/post/where-do-i-put-secret-key-in-expo-project.md
 
+* MobX https://mobx.js.org/observable-state.html
+* 
+* Common pitfalls & best practices Common pitfalls & best practices https://doc.ebichu.cc/mobx/best/pitfalls.html
+
 ## Issues
 
 * https://github.com/callstack/react-native-paper/issues/2110

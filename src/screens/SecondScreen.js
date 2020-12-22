@@ -38,7 +38,7 @@ export default class SecondScreen extends React.Component {
   }  
 
   onItemPress = (item) => {
-    console.log('Clic...' + item.id);
+    console.log('Click...' + item.id);
   }
 
   renderItem = ({ item }) => {
