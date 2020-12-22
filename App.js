@@ -14,6 +14,10 @@ import FirstScreen from './src/screens/FirstScreen';
 import SecondScreen from './src/screens/SecondScreen';
 import ThirdScreen from './src/screens/ThirdScreen';
 
+import { configure } from 'mobx';
+
+configure({ enforceActions: 'observed' });
+
 const AppTheme = {
   ...DefaultTheme,
   dark: false, 
