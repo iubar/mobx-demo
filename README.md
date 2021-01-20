@@ -1,6 +1,6 @@
 # mobx-demo
 
-[![Build Status](https://travis-ci.org/iubar/mobx-demo.svg?branch=master)](https://travis-ci.org/iubar/mobx-demo)
+[![Build Status](https://travis-ci.com/iubar/mobx-demo.svg?branch=master)](https://travis-ci.com/iubar/mobx-demo)
 
 A simple app to test mobx on Expo
 
