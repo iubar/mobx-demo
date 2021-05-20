@@ -4,9 +4,6 @@
 
 A simple app to test mobx on Expo
 
-Live version: https://snack.expo.io/@git/github.com/iubar/mobx-demo
-
-
 ## Notes
 
 * https://codesandbox.io/s/94nm892nqr
