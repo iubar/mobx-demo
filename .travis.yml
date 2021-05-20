@@ -1,22 +1,25 @@
+dist: focal # https://docs.travis-ci.com/user/reference/focal/
 language: node_js
 node_js:
   - lts/*
 cache:
   directories:
     - ~/.npm
-before_script:
+before_install:
   - sudo apt-get -y install jq
   - npm install -g npm@latest
   - npm install -g expo-cli
-script:
-  - echo 'Installing the dependencies...'
+install:
   - yarn install --non-interactive
+before_script:  
   - expo --version # expo-cli version
   - yarn list expo
   - echo 'Set unsplash api key to app.json'
   - jq '.expo.extra.unsplash="$UNSPLASH_API_KEY"' app.json > app.json.tmp && mv -f app.json.tmp app.json
   - echo 'Analysing app config...'
   - expo doctor --non-interactive
+script: true
+after_script:  
   - expo login -u ${EXPO_USERNAME} -p ${EXPO_PASSWORD}
   - expo publish --non-interactive --quiet --release-channel default
 notifications:
