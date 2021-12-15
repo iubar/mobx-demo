@@ -1,6 +1,7 @@
 # mobx-demo
 
 [![Build Status](https://app.travis-ci.com/iubar/mobx-demo.svg?branch=master)](https://app.travis-ci.com/github/iubar/mobx-demo)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/59417b37bba14978af4c2a89b27d0dec)](https://www.codacy.com/gh/iubar/mobx-demo/dashboard)
 
 A simple app to test mobx on Expo
 
