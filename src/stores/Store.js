@@ -22,7 +22,7 @@ import Constants from 'expo-constants';
             setData: action, 
             setButtonEnabled: action, 
             searchImages: action,
-            
+            //text: observable,
             searchedText: computed
         })
     }
@@ -34,7 +34,7 @@ import Constants from 'expo-constants';
     get searchedText(){
         let _text = 'undefined';
         if(this.text){
-            _text = 'You have searched the string: ' + this.text;
+            _text = '\'' + this.text + '\'';
         }
         
         return _text;
@@ -58,12 +58,17 @@ import Constants from 'expo-constants';
         this.buttonEnabled = b;
     };  
  
+    randomNumberInRange(min, max) {
+        // 👇️ get number between min (inclusive) and max (inclusive)
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
     // An action to call API and search images
     searchImages = async () => {
         this.setButtonEnabled(false);
         let API_KEY = Constants.manifest.extra.unsplashApiKey;
         let page = 1; // vale sempre 1 in questo esempio
-        let per_page = 2;
+        let per_page = this.randomNumberInRange(3,6);
         let url = 'https://api.unsplash.com';
         let lang = 'en';
         let orientation = 'landscape';

@@ -33,9 +33,12 @@ componentDidMount(){
   */
  this.disposeTheWhen = when(    
         // once...
-        () => {return (this.props.store.data.results.length>0)},
+        () => {return (this.props.store.data.results.length>0)}, // as soon as it's true, the listener is disposed
         // ... then
-        () => {console.log('@@@@@ When count > 0'); this.setState({text1: this.props.store.data.results.length + ' > 0'});}
+        () => {
+          console.log('@@@@@ When count > 0'); 
+          this.setState({text1: this.props.store.data.results.length});
+        }
       ); 
     
 this.disposeTheAutorun = autorun(() => {
@@ -50,13 +53,13 @@ componentWillUnmount() {
   this.dispose();
 }
 
-onButtoPress = () => {
+onButtonPress = () => {
   this.dispose();
   this.setState({buttonEnabled: false});
 }
 
 dispose = () => {
-  console.log('Disposing mobX reaction listeners...');
+  console.log('Disposing all mobX reaction listeners...');
   this.disposeTheAutorun();
   this.disposeTheWhen();
 }
@@ -64,24 +67,28 @@ dispose = () => {
   render(){
     console.log('Render di ThirdScreen');
  
+    // <ScrollView ... contentContainerStyle={styles.container2}>
   return (
     <SafeAreaView style={styles.container1}>
-      <ScrollView style={styles.listView} contentContainerStyle={styles.container2}>
-      <Headline>Computed Observables</Headline>
+      <ScrollView style={styles.listView}>
+      <Headline>Observables</Headline>
       <View style={styles.section1}>
-        <Text>@computed searchedText(): {this.props.store.searchedText}</Text> 
         <Text>text: {this.props.store.text}</Text>        
-        <Text>The 'text' attribute is not observable, so the value printed above will be updated only when others events will call the render() method. In other words, the value may change in the store but the text above can continue to show a previous value. This is just to show a wrong usage of a computed observable.</Text>
+        <Text>The 'text' attribute is not observable, so the value printed above will be updated only when others events will call the render() method. In other words, the value may change in the store but the text above can continue to show a previous value.</Text>
+        <Text>@computed searchedText(): {this.props.store.searchedText}</Text> 
+        <Text>The above computed function doesn't work as expected because 'text' is not observable. That show a wrong usage of a computed observable.</Text>
       </View>   
-      <Divider theme={{height: 10 ,  backgroundColor: 'red', color: 'green' }} style={{height: 10 ,  backgroundColor: 'red', color: 'green' }} />
+
+      <Divider theme={{height: 10 ,  backgroundColor: 'red', color: 'black' }} style={{height: 15 ,  backgroundColor: 'green', color: 'yellow' }} />
+
       <Headline>Reactions</Headline>
       <View style={styles.section2}>
-      <Text>When: {this.state.text1}</Text> 
-      <Text>(the function defined as second argument in when(), it's only fired once so the text above will never be updated again)</Text> 
-      <Text>Autorun: {this.state.text2}</Text> 
+        <Text>When: {this.state.text1}</Text> 
+        <Text>(if > 0, the listener is disposed)</Text>
+        <Text>The function defined as second argument in when() is automatically disposed as soon as the first function passed as argument to when() is true. So the event is fired only once and the text above will never be updated again.</Text> 
+        <Text>Autorun: {this.state.text2}</Text> 
       </View>
-      <Divider style={{marginVertical: 20}} />
-      <Button style={styles.button} disabled={!this.state.buttonEnabled} icon="camera" mode="contained" onPress={this.onButtoPress}>Dispose reactions</Button>
+       <Button style={styles.button} disabled={!this.state.buttonEnabled} icon="camera" mode="contained" onPress={this.onButtonPress}>Dispose all listeners</Button>
       </ScrollView>
     </SafeAreaView>
   );
@@ -91,13 +98,13 @@ dispose = () => {
 const styles = StyleSheet.create({
   container1: {
     flex: 1,
-    marginTop: 60, 
-    marginBottom: 40,
-    marginHorizontal: 16,      
+    marginTop: 5, 
+    marginBottom: 5,
+    marginHorizontal: 12,      
   },   
   container2: {
     flex: 1,
-    alignItems: 'center',
+    // NO: alignItems: 'center',
     justifyContent: 'center',
   },
   listView: {
