@@ -66,7 +66,7 @@ import Constants from 'expo-constants';
     // An action to call API and search images
     searchImages = async () => {
         this.setButtonEnabled(false);
-        let API_KEY = Constants.manifest.extra.unsplashApiKey;
+        let API_KEY = Constants.manifest.extra.unsplashApiKey; // see the app.json file in the root path
         let page = 1; // vale sempre 1 in questo esempio
         let per_page = this.randomNumberInRange(3,6);
         let url = 'https://api.unsplash.com';
