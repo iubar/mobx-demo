@@ -5,7 +5,7 @@ exports[`<App /> renders correctly 1`] = `
   collapsable={false}
   pointerEvents="box-none"
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
@@ -13,8 +13,8 @@ exports[`<App /> renders correctly 1`] = `
   <RNCSafeAreaProvider
     onInsetsChange={[Function]}
     style={
-      Array [
-        Object {
+      [
+        {
           "flex": 1,
         },
         undefined,
@@ -23,7 +23,7 @@ exports[`<App /> renders correctly 1`] = `
   >
     <RNSScreenNavigationContainer
       style={
-        Object {
+        {
           "flex": 1,
           "overflow": "hidden",
         }
@@ -34,7 +34,7 @@ exports[`<App /> renders correctly 1`] = `
         collapsable={false}
         forwardedRef={[Function]}
         gestureResponseDistance={
-          Object {
+          {
             "bottom": -1,
             "end": -1,
             "start": -1,
@@ -42,7 +42,7 @@ exports[`<App /> renders correctly 1`] = `
           }
         }
         style={
-          Object {
+          {
             "bottom": 0,
             "left": 0,
             "position": "absolute",
@@ -56,13 +56,13 @@ exports[`<App /> renders correctly 1`] = `
           accessibilityElementsHidden={false}
           importantForAccessibility="auto"
           style={
-            Array [
-              Object {
+            [
+              {
                 "backgroundColor": "rgb(242, 242, 242)",
                 "flex": 1,
               },
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                   "flexDirection": "column-reverse",
                 },
@@ -73,7 +73,7 @@ exports[`<App /> renders correctly 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "flex": 1,
               }
             }
@@ -81,7 +81,7 @@ exports[`<App /> renders correctly 1`] = `
             <RCTSafeAreaView
               emulateUnlessSupported={true}
               style={
-                Object {
+                {
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -89,16 +89,16 @@ exports[`<App /> renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "rgb(28, 28, 30)",
                       "fontFamily": "System",
                       "fontWeight": "400",
                     },
-                    Object {
+                    {
                       "textAlign": "left",
                     },
-                    Object {
+                    {
                       "textAlign": "center",
                     },
                   ]
@@ -110,13 +110,13 @@ exports[`<App /> renders correctly 1`] = `
               </Text>
               <View
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "backgroundColor": "rgba(0, 0, 0, 0.12)",
                       "height": 0.5,
                     },
                     undefined,
-                    Object {
+                    {
                       "background": "black",
                       "height": 10,
                       "marginVertical": 20,
@@ -126,13 +126,13 @@ exports[`<App /> renders correctly 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "rgb(28, 28, 30)",
                       "fontFamily": "System",
                       "fontWeight": "400",
                     },
-                    Object {
+                    {
                       "textAlign": "left",
                     },
                     undefined,
@@ -151,7 +151,7 @@ exports[`<App /> renders correctly 1`] = `
               collapsable={false}
               pointerEvents="box-none"
               style={
-                Object {
+                {
                   "bottom": 0,
                   "left": 0,
                   "position": "absolute",
@@ -164,12 +164,12 @@ exports[`<App /> renders correctly 1`] = `
               <View
                 collapsable={false}
                 style={
-                  Object {
+                  {
                     "backgroundColor": "rgb(255, 255, 255)",
                     "borderBottomColor": "rgb(199, 199, 204)",
                     "flex": 1,
                     "shadowColor": "rgb(199, 199, 204)",
-                    "shadowOffset": Object {
+                    "shadowOffset": {
                       "height": 0.5,
                       "width": 0,
                     },
@@ -183,7 +183,7 @@ exports[`<App /> renders correctly 1`] = `
               collapsable={false}
               pointerEvents="box-none"
               style={
-                Object {
+                {
                   "height": 44,
                   "maxHeight": undefined,
                   "minHeight": undefined,
@@ -195,7 +195,7 @@ exports[`<App /> renders correctly 1`] = `
               <View
                 pointerEvents="none"
                 style={
-                  Object {
+                  {
                     "height": 0,
                   }
                 }
@@ -203,7 +203,7 @@ exports[`<App /> renders correctly 1`] = `
               <View
                 pointerEvents="box-none"
                 style={
-                  Object {
+                  {
                     "alignItems": "stretch",
                     "flex": 1,
                     "flexDirection": "row",
@@ -214,7 +214,7 @@ exports[`<App /> renders correctly 1`] = `
                   collapsable={false}
                   pointerEvents="box-none"
                   style={
-                    Object {
+                    {
                       "alignItems": "flex-start",
                       "flexBasis": 0,
                       "flexGrow": 1,
@@ -227,7 +227,7 @@ exports[`<App /> renders correctly 1`] = `
                   collapsable={false}
                   pointerEvents="box-none"
                   style={
-                    Object {
+                    {
                       "justifyContent": "center",
                       "marginHorizontal": 16,
                       "maxWidth": 718,
@@ -240,7 +240,7 @@ exports[`<App /> renders correctly 1`] = `
                     collapsable={false}
                     numberOfLines={1}
                     style={
-                      Object {
+                      {
                         "color": "rgb(28, 28, 30)",
                         "fontSize": 17,
                         "fontWeight": "600",
@@ -254,7 +254,7 @@ exports[`<App /> renders correctly 1`] = `
                   collapsable={false}
                   pointerEvents="box-none"
                   style={
-                    Object {
+                    {
                       "alignItems": "flex-end",
                       "flexBasis": 0,
                       "flexGrow": 1,
@@ -274,7 +274,7 @@ exports[`<App /> renders correctly 1`] = `
       onLayout={[Function]}
       pointerEvents="auto"
       style={
-        Object {
+        {
           "backgroundColor": "rgb(255, 255, 255)",
           "borderTopColor": "rgb(199, 199, 204)",
           "borderTopWidth": 0.5,
@@ -286,8 +286,8 @@ exports[`<App /> renders correctly 1`] = `
           "paddingHorizontal": 0,
           "position": null,
           "right": 0,
-          "transform": Array [
-            Object {
+          "transform": [
+            {
               "translateY": 0,
             },
           ],
@@ -297,7 +297,7 @@ exports[`<App /> renders correctly 1`] = `
       <View
         pointerEvents="none"
         style={
-          Object {
+          {
             "bottom": 0,
             "left": 0,
             "position": "absolute",
@@ -309,7 +309,7 @@ exports[`<App /> renders correctly 1`] = `
       <View
         accessibilityRole="tablist"
         style={
-          Object {
+          {
             "flex": 1,
             "flexDirection": "row",
           }
@@ -319,12 +319,12 @@ exports[`<App /> renders correctly 1`] = `
           accessibilityLabel="Home, tab, 1 of 3"
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "selected": true,
             }
           }
           accessibilityStates={
-            Array [
+            [
               "selected",
             ]
           }
@@ -341,15 +341,15 @@ exports[`<App /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "transparent",
               },
-              Object {
+              {
                 "flexDirection": "column",
                 "justifyContent": "flex-end",
               },
@@ -359,8 +359,8 @@ exports[`<App /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                 },
                 undefined,
@@ -369,8 +369,8 @@ exports[`<App /> renders correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -379,7 +379,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 1,
                   },
                 ]
@@ -389,8 +389,8 @@ exports[`<App /> renders correctly 1`] = `
             </View>
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -399,7 +399,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 0,
                   },
                 ]
@@ -411,15 +411,15 @@ exports[`<App /> renders correctly 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
+              [
+                {
                   "backgroundColor": "transparent",
                   "textAlign": "center",
                 },
-                Object {
+                {
                   "color": "red",
                 },
-                Object {
+                {
                   "fontSize": 10,
                 },
                 undefined,
@@ -433,11 +433,11 @@ exports[`<App /> renders correctly 1`] = `
           accessibilityLabel="Basic, tab, 2 of 3"
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "selected": false,
             }
           }
-          accessibilityStates={Array []}
+          accessibilityStates={[]}
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -451,15 +451,15 @@ exports[`<App /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "transparent",
               },
-              Object {
+              {
                 "flexDirection": "column",
                 "justifyContent": "flex-end",
               },
@@ -469,8 +469,8 @@ exports[`<App /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                 },
                 undefined,
@@ -479,8 +479,8 @@ exports[`<App /> renders correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -489,7 +489,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 0,
                   },
                 ]
@@ -499,8 +499,8 @@ exports[`<App /> renders correctly 1`] = `
             </View>
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -509,7 +509,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 1,
                   },
                 ]
@@ -521,7 +521,7 @@ exports[`<App /> renders correctly 1`] = `
               collapsable={false}
               numberOfLines={1}
               style={
-                Object {
+                {
                   "alignSelf": "flex-end",
                   "backgroundColor": "blue",
                   "borderRadius": 9.375,
@@ -537,8 +537,8 @@ exports[`<App /> renders correctly 1`] = `
                   "position": "absolute",
                   "textAlign": "center",
                   "top": 3,
-                  "transform": Array [
-                    Object {
+                  "transform": [
+                    {
                       "scale": 1,
                     },
                   ],
@@ -551,15 +551,15 @@ exports[`<App /> renders correctly 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
+              [
+                {
                   "backgroundColor": "transparent",
                   "textAlign": "center",
                 },
-                Object {
+                {
                   "color": "#8E8E8F",
                 },
-                Object {
+                {
                   "fontSize": 10,
                 },
                 undefined,
@@ -573,11 +573,11 @@ exports[`<App /> renders correctly 1`] = `
           accessibilityLabel="Advanced, tab, 3 of 3"
           accessibilityRole="button"
           accessibilityState={
-            Object {
+            {
               "selected": false,
             }
           }
-          accessibilityStates={Array []}
+          accessibilityStates={[]}
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -591,15 +591,15 @@ exports[`<App /> renders correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
+            [
+              {
                 "alignItems": "center",
                 "flex": 1,
               },
-              Object {
+              {
                 "backgroundColor": "transparent",
               },
-              Object {
+              {
                 "flexDirection": "column",
                 "justifyContent": "flex-end",
               },
@@ -609,8 +609,8 @@ exports[`<App /> renders correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flex": 1,
                 },
                 undefined,
@@ -619,8 +619,8 @@ exports[`<App /> renders correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -629,7 +629,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 0,
                   },
                 ]
@@ -639,8 +639,8 @@ exports[`<App /> renders correctly 1`] = `
             </View>
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "alignSelf": "center",
                     "height": "100%",
@@ -649,7 +649,7 @@ exports[`<App /> renders correctly 1`] = `
                     "position": "absolute",
                     "width": "100%",
                   },
-                  Object {
+                  {
                     "opacity": 1,
                   },
                 ]
@@ -661,15 +661,15 @@ exports[`<App /> renders correctly 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
+              [
+                {
                   "backgroundColor": "transparent",
                   "textAlign": "center",
                 },
-                Object {
+                {
                   "color": "#8E8E8F",
                 },
-                Object {
+                {
                   "fontSize": 10,
                 },
                 undefined,
