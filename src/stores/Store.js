@@ -1,103 +1,113 @@
-import { makeObservable, observable, action, computed } from "mobx";
+import { makeObservable, observable, action, computed } from 'mobx';
 import Constants from 'expo-constants';
 
- class Store {
+class Store {
+	// Observable attributes
+	name = 'MobX Demo';
+	buttonEnabled = true;
+	data = { results: [] };
 
-    // Observable attributes
-    name = 'MobX Demo';
-    buttonEnabled = true;
-    data = { results: [] };
+	// Not observable attributes
+	text = '';
 
-    // Not observable attributes
-    text = '';
+	constructor() {
+		// makeObservable(this)
+		makeObservable(this, {
+			name: observable,
+			buttonEnabled: observable,
+			data: observable,
 
-    constructor() {
-        // makeObservable(this)
-        makeObservable(this, {
-            name: observable,
-            buttonEnabled: observable,
-            data: observable,
+			updateText: action,
+			setData: action,
+			setButtonEnabled: action,
+			searchImages: action,
+			//text: observable,
+			searchedText: computed,
+		});
+	}
 
-            updateText: action, 
-            setData: action, 
-            setButtonEnabled: action, 
-            searchImages: action,
-            //text: observable,
-            searchedText: computed
-        })
-    }
+	// The values that can be derived from already defined observables are computed values.
+	// Computed works like a getter function to get derived state from the observable
+	// The following computed function doesn't work as expected because 'text' is not observable
+	// This is right because, right now, we don't need 'text' to be observable
+	get searchedText() {
+		let _text = 'undefined';
+		if (this.text) {
+			_text = "'" + this.text + "'";
+		}
 
-    // The values that can be derived from already defined observables are computed values.
-    // Computed works like a getter function to get derived state from the observable
-    // The following computed function doesn't work as expected because 'text' is not observable
-    // This is right because, right now, we don't need 'text' to be observable
-    get searchedText(){
-        let _text = 'undefined';
-        if(this.text){
-            _text = '\'' + this.text + '\'';
-        }
-        
-        return _text;
-    }
+		return _text;
+	}
 
-    // Actions are simply functions that modify the state.
-    updateText = (text) => {
-        console.log('action called, text updated : ' + text);
-        this.text = text;
-    }
+	// Actions are simply functions that modify the state.
+	updateText = (text) => {
+		console.log('action called, text updated : ' + text);
+		this.text = text;
+	};
 
-    // Observables can be modifies by an action only.
-    // Actions are simply functions that modify the state.
-    setData = (json) => {
-        console.log('data updated');
-        this.data.results = json.results;
-        console.log('this.data size: ' + this.data.results.length);
-    };
+	// Observables can be modifies by an action only.
+	// Actions are simply functions that modify the state.
+	setData = (json) => {
+		console.log('data updated');
+		this.data.results = json.results;
+		console.log('this.data size: ' + this.data.results.length);
+	};
 
-    setButtonEnabled = (b) => {
-        this.buttonEnabled = b;
-    };  
- 
-    randomNumberInRange(min, max) {
-        // 👇️ get number between min (inclusive) and max (inclusive)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
+	setButtonEnabled = (b) => {
+		this.buttonEnabled = b;
+	};
 
-    // An action to call API and search images
-    searchImages = async () => {
-        this.setButtonEnabled(false);
-        let API_KEY = Constants.manifest.extra.unsplashApiKey; // see the app.json file in the root path
-        let page = 1; // vale sempre 1 in questo esempio
-        let per_page = this.randomNumberInRange(3,6);
-        let url = 'https://api.unsplash.com';
-        let lang = 'en';
-        let orientation = 'landscape';
-        url = url + '/search/photos';
-        url = url + '?page=' + page + '&per_page=' + per_page + '&lang=' + lang + '&orientation=' + orientation + '&query=' + encodeURIComponent(this.text) ;
-        console.log('Fetching ' + url);
-        let result = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-                'Accept-Version': 'v1',
-                Authorization: 'Client-ID ' + API_KEY,        
-            }
-        });	
-        let json = await result.json();
-        //console.log('json: ' + JSON.stringify(json));		
-        const statusCode = result.status;             
-        if (statusCode != 200){
-            console.log('Http error: ' + statusCode);			
-        } else {
-            console.log('Ok: ' + statusCode);
-            console.log('results size: ' + json.results.length);
-            this.setData(json);
-        }
-        this.setButtonEnabled(true);
-    }
+	randomNumberInRange(min, max) {
+		// 👇️ get number between min (inclusive) and max (inclusive)
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
 
-/*
+	// An action to call API and search images
+	searchImages = async () => {
+		this.setButtonEnabled(false);
+		let API_KEY = Constants.manifest.extra.unsplashApiKey; // see the app.json file in the root path
+		let page = 1; // vale sempre 1 in questo esempio
+		let per_page = this.randomNumberInRange(3, 6);
+		let url = 'https://api.unsplash.com';
+		let lang = 'en';
+		let orientation = 'landscape';
+		url = url + '/search/photos';
+		url =
+			url +
+			'?page=' +
+			page +
+			'&per_page=' +
+			per_page +
+			'&lang=' +
+			lang +
+			'&orientation=' +
+			orientation +
+			'&query=' +
+			encodeURIComponent(this.text);
+		console.log('Fetching ' + url);
+		let result = await fetch(url, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Accept-Version': 'v1',
+				'Authorization': 'Client-ID ' + API_KEY,
+			},
+		});
+		let json = await result.json();
+		//console.log('json: ' + JSON.stringify(json));
+		const statusCode = result.status;
+		if (statusCode != 200) {
+			console.log('Http error: ' + statusCode);
+		} else {
+			console.log('Ok: ' + statusCode);
+			console.log('results size: ' + json.results.length);
+			this.setData(json);
+		}
+		this.setButtonEnabled(true);
+	};
+
+	/*
 
 OTHER EXAMPLES:
 
@@ -129,9 +139,6 @@ decorate(Store, {
   setData: action,
 });
 */
-
-
-
 } // end class
- 
+
 export default new Store();

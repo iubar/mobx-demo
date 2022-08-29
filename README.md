@@ -1,9 +1,15 @@
 # mobx-demo
 
-[![Build Status](https://app.travis-ci.com/iubar/mobx-demo.svg?branch=master)](https://app.travis-ci.com/github/iubar/mobx-demo)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/iubar/mobx-demo/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/iubar/mobx-demo/tree/master)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/59417b37bba14978af4c2a89b27d0dec)](https://www.codacy.com/gh/iubar/mobx-demo/dashboard)
 
 A simple app to test mobx on Expo
+
+Live version: https://snack.expo.io/@git/github.com/iubar/mobx-demo
+
+Manifest: https://exp.host/@borgo/mobx-demo/index.exp?sdkVersion=46.0.0 
+
+Project page: https://expo.dev/@borgo/mobx-demo?serviceType=classic&distribution=expo-go
 
 ## Notes
 
