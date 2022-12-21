@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Image, FlatList } from 'react-native';
 // Paper
 import {
 	Divider,
@@ -78,7 +78,7 @@ export default class ThirdScreen extends React.Component {
 
 		// <ScrollView ... contentContainerStyle={styles.container2}>
 		return (
-			<SafeAreaView style={styles.container1}>
+			<View style={styles.container1}>
 				<ScrollView style={styles.listView}>
 					<Headline>Observables</Headline>
 					<View style={styles.section1}>
@@ -122,7 +122,7 @@ export default class ThirdScreen extends React.Component {
 						Dispose all listeners
 					</Button>
 				</ScrollView>
-			</SafeAreaView>
+			</View>
 		);
 	}
 }

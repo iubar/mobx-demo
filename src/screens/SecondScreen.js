@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 // Paper
 import {
 	Text,
@@ -81,7 +81,7 @@ if(this.props.store.data){
 */
 
 		return (
-			<SafeAreaView style={styles.container}>
+			<View style={styles.container}>
 				<Subheading style={styles.title}>
 					Images found: {this.props.store.data.results.length}
 				</Subheading>
@@ -114,7 +114,7 @@ if(this.props.store.data){
 					keyExtractor={(item) => item.id}
 					renderItem={this.renderItem}
 				/>
-			</SafeAreaView>
+			</View>
 		);
 	}
 } // end class
