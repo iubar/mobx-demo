@@ -88,7 +88,7 @@ exports[`<App /> renders correctly 1`] = `
                 }
               }
             >
-              <RCTSafeAreaView
+              <View
                 style={
                   Object {
                     "flex": 1,
@@ -160,7 +160,7 @@ exports[`<App /> renders correctly 1`] = `
                 >
                   Please change tab
                 </Text>
-              </RCTSafeAreaView>
+              </View>
             </View>
             <View
               onLayout={[Function]}
