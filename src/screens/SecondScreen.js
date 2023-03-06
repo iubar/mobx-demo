@@ -1,16 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
-// Paper
-import {
-	Text,
-	Title,
-	Paragraph,
-	Button,
-	TextInput,
-	Subheading,
-	Headline,
-} from 'react-native-paper';
-// MobX
+import { Text, Button, TextInput, Subheading } from 'react-native-paper';
 import { inject, observer } from 'mobx-react';
 
 @inject('store')

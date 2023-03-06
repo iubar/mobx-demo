@@ -1,15 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {
-	Divider,
-	Text,
-	Title,
-	Paragraph,
-	Button,
-	TextInput,
-	Subheading,
-	Headline,
-} from 'react-native-paper';
+import { Divider, Text } from 'react-native-paper';
 import { inject, observer } from 'mobx-react';
 
 @inject('store')

@@ -1,17 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, FlatList } from 'react-native';
-// Paper
-import {
-	Divider,
-	Text,
-	Title,
-	Paragraph,
-	Button,
-	TextInput,
-	Subheading,
-	Headline,
-} from 'react-native-paper';
-// MobX
+import { StyleSheet, View } from 'react-native';
+import { Divider, Text, Button, Headline } from 'react-native-paper';
 import { inject, observer } from 'mobx-react';
 import { when, autorun } from 'mobx';
 import { ScrollView } from 'react-native-gesture-handler';
