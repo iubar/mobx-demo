@@ -26,8 +26,12 @@
     "ios": {
       "supportsTablet": true
     },
-     "extra": {
-      "unsplashApiKey": "itf2tMyWrU0JapP7MfeHGhvE-PalHj_IFgcuGDfSzGg"
-    }    
+    "extra": {
+      "unsplashApiKey": "itf2tMyWrU0JapP7MfeHGhvE-PalHj_IFgcuGDfSzGg",
+      "eas": {
+        "projectId": "14c4ce79-99ab-400e-b1f7-b1d1f051f1bb"
+      }
+    },
+    "owner": "borgo"
   }
 }
