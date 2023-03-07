@@ -32,5 +32,5 @@ jobs:
           command: |
             npx eas-cli diagnostics
             # npx expo-cli doctor # not supported in the local CLI
-            npx eas-cli update --non-interactive --branch master --message "New version"
-            # TODO: verificar l'utilità di : --quiet --release-channel default
+            npx eas-cli update --non-interactive --quiet --branch master --message "New version"
+            # TODO: verificar l'utilità di : --release-channel default
