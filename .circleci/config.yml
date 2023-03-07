@@ -10,12 +10,12 @@ jobs:
           name: Update NPM
           command: "sudo npm install -g npm@8"
       - restore_cache:
-          key: dependency-cache5-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install Dependencies
           command: npm ci
       - save_cache:
-          key: dependency-cache5-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
       - run:
@@ -30,10 +30,5 @@ jobs:
       - run:
           name: Publish
           command: |
-            npx eas-cli diagnostics
-            # npx expo-cli doctor # not supported in the local CLI
-            export CI=1
+            npx eas-cli diagnostics            
             npx eas-cli update --non-interactive --branch master --message "New version"
-            # TODO: verificar l'utilità di : --release-channel default
-            # see https://docs.expo.dev/eas-update/eas-update-and-eas-cli/
-            # see https://stackoverflow.com/questions/73561558/expo-eas-how-to-link-eas-update-branch-with-build-channel
