@@ -65,7 +65,7 @@ class Store {
 	// An action to call API and search images
 	searchImages = async () => {
 		this.setButtonEnabled(false);
-		let API_KEY = Constants.manifest.extra.unsplashApiKey; // see the app.json file in the root path
+		let API_KEY = Constants.expoConfig.extra.unsplashApiKey; // see the app.json file in the root path
 		let page = 1; // vale sempre 1 in questo esempio
 		let per_page = this.randomNumberInRange(3, 6);
 		let url = 'https://api.unsplash.com';
@@ -85,6 +85,11 @@ class Store {
 			'&query=' +
 			encodeURIComponent(this.text);
 		console.log('Fetching ' + url);
+		let statusCode = 0;
+		let json = null;
+		try {
+			
+
 		let result = await fetch(url, {
 			method: 'GET',
 			headers: {
@@ -94,14 +99,21 @@ class Store {
 				'Authorization': 'Client-ID ' + API_KEY,
 			},
 		});
-		let json = await result.json();
-		//console.log('json: ' + JSON.stringify(json));
-		const statusCode = result.status;
+			json = await result.json();
+		  statusCode = result.status;
+
+	} catch (error) {
+		console.log('*** ERROR ***');
+		console.log(error.message);
+		
+	}
+
 		if (statusCode != 200) {
 			console.log('Http error: ' + statusCode);
 		} else {
 			console.log('Ok: ' + statusCode);
 			console.log('results size: ' + json.results.length);
+			//console.log('json: ' + JSON.stringify(json));
 			this.setData(json);
 		}
 		this.setButtonEnabled(true);

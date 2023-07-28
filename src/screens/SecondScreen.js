@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, FlatList, Image, TouchableOpacity, Keyboard } from 'react-native';
 import { Text, Button, TextInput, Subheading } from 'react-native-paper';
 import { inject, observer } from 'mobx-react';
 
@@ -18,8 +18,9 @@ export default class SecondScreen extends React.Component {
 	}
 
 	onButtoPress = () => {
-		console.log('Button pressed...');
+		console.log('onButtoPress()...');
 		this.props.store.searchImages();
+		Keyboard.dismiss(); // quando l'utente conferma l'input, NON sulla tastiera ma con tap sul pulsante
 	};
 
 	onSubmit = () => {
