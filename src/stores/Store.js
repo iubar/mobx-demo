@@ -88,25 +88,21 @@ class Store {
 		let statusCode = 0;
 		let json = null;
 		try {
-			
-
-		let result = await fetch(url, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accept': 'application/json',
-				'Accept-Version': 'v1',
-				'Authorization': 'Client-ID ' + API_KEY,
-			},
-		});
+			let result = await fetch(url, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+					'Accept-Version': 'v1',
+					'Authorization': 'Client-ID ' + API_KEY,
+				},
+			});
 			json = await result.json();
-		  statusCode = result.status;
-
-	} catch (error) {
-		console.log('*** ERROR ***');
-		console.log(error.message);
-		
-	}
+			statusCode = result.status;
+		} catch (error) {
+			console.log('*** ERROR ***');
+			console.log(error.message);
+		}
 
 		if (statusCode != 200) {
 			console.log('Http error: ' + statusCode);

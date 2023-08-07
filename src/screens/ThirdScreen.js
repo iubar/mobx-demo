@@ -3,7 +3,6 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 import { Divider, Text, Button, Headline } from 'react-native-paper';
 import { inject, observer } from 'mobx-react';
 import { when, autorun } from 'mobx';
- 
 
 @inject('store')
 @observer
@@ -23,7 +22,6 @@ export default class ThirdScreen extends React.Component {
 		console.log('componentDidMount() di ThirdScreen');
 		console.log('theme: ' + JSON.stringify(this.props));
 
-
 		const { store } = this.props; // see https://blog.logicwind.com/quick-easy-mobx-tutorial-in-reactnative/
 
 		/**
@@ -32,9 +30,9 @@ export default class ThirdScreen extends React.Component {
 		 * It automatically dispose of itself when triggered so it's only fires one time.
 		 * Its a good idea to dispose of it in componentWillUnmount().
 		 */
-		this.disposeTheWhen =  when(
+		this.disposeTheWhen = when(
 			// once...
-			() => {	 
+			() => {
 				return store.data.results.length > 0;
 			}, // as soon as it's true, the listener is disposed
 			// ... then
@@ -44,8 +42,7 @@ export default class ThirdScreen extends React.Component {
 			}
 		);
 
-
-		this.disposeTheAutorun =  autorun(() => {
+		this.disposeTheAutorun = autorun(() => {
 			console.log('##### Autorun count: ' + store.data.results.length);
 			this.setState({ text2: store.data.results.length });
 		});
@@ -84,9 +81,7 @@ export default class ThirdScreen extends React.Component {
 							continue to show a previous value.
 						</Text>
 						<Text>@computed searchedText(): {this.props.store.searchedText}</Text>
-						<Text>
-						    Rappresenta il valore di store.text tra virgolette
-						</Text>
+						<Text>Rappresenta il valore di store.text tra virgolette</Text>
 						<Text>
 							The above computed function doesn't work as expected because 'text' is
 							not observable. That show a wrong usage of a computed observable.
